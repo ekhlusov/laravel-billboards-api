@@ -1,0 +1,51 @@
+version: '2'
+
+services:
+  
+  nginx:
+    build: ./containers/nginx/
+    links:
+     - php
+    ports:
+     - "59080:80"
+    volumes_from:
+     - php
+
+  pg:
+    build: ./containers/pg/
+    ports:
+     - "59432:5432"
+    volumes:
+     - ./runtime/pg/data:/var/lib/postgresql/data
+    env_file: ./containers/pg/.env
+
+  php:
+    links:
+     - pg
+    # - php-deamons
+    build: ./containers/php/
+    volumes:
+     - ./app:/app/htdocs
+     - ./runtime/logs:/app/log
+     - ./mount:/app/mount
+
+  # dependency containers
+
+  #node:
+  #  build: ./containers/node/
+  #  volumes:
+  #   - ./app:/app/htdocs
+  #  ports:
+  #   - "3000:3000"
+  #   - "3001:3001"
+
+  # util containers
+
+  php-deamons:
+     links:
+      - pg
+     build: ./containers/php-deamons/
+     volumes:
+      - ./app:/app/htdocs
+      - ./runtime/logs:/app/log
+      - ./mount:/app/mount

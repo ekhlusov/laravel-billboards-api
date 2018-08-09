@@ -32,9 +32,9 @@ server {
 }
 ```
 
-###Настройка дебаг сессии
+### Настройка дебаг сессии
 PhpStorm перейдите во вкладку Language & frameworks -> php -> servers
 Для localhost настройки mapping. app/app -> app/htdocs/
 
-###Привер запуска задач из очереди по крону
+### Привер запуска задач из очереди по крону
 ```*  *  *  *  *       cd /home/deploy/billboards && /usr/bin/make scheduler-run >> /dev/null 2>&1```

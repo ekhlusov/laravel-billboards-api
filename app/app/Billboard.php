@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Billboard extends Model
 {
-    protected $fillable = ['city', 'address', 'description'];
+    protected $fillable = ['city', 'address', 'description', 'coordinates'];
 }

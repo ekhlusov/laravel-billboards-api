@@ -36,5 +36,5 @@ server {
 PhpStorm перейдите во вкладку Language & frameworks -> php -> servers
 Для localhost настройки mapping. app/app -> app/htdocs/
 
-### Привер запуска задач из очереди по крону
+### Пример запуска задач из очереди по крону
 ```*  *  *  *  *       cd /home/deploy/billboards && /usr/bin/make scheduler-run >> /dev/null 2>&1```

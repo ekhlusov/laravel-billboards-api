@@ -2,7 +2,7 @@
  * Яндекс карты, отметки
  */
 document.addEventListener("DOMContentLoaded", loadData);
-
+ymaps.ready(init);
 function init() {
     var map = new ymaps.Map("map", {
         center: [55.76, 37.64],

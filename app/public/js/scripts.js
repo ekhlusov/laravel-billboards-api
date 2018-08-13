@@ -2,9 +2,9 @@
  * Яндекс карты, отметки
  */
 document.addEventListener("DOMContentLoaded", loadData);
+loadData();
 ymaps.ready(init)
 function init() {
-    loadData();
     var map = new ymaps.Map("map", {
         center: [55.76, 37.64],
         zoom: 10
@@ -21,7 +21,7 @@ function init() {
             })
 
             map.geoObjects.add(mark);
-            console.log(window.COORDINATES_DATA[i].coordinates);
+            //console.log(window.COORDINATES_DATA[i].coordinates);
         }
     }
 }

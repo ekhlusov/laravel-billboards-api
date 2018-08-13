@@ -2,7 +2,7 @@
  * Яндекс карты, отметки
  */
 document.addEventListener("DOMContentLoaded", loadData);
-ymaps.ready(init);
+
 function init() {
     var map = new ymaps.Map("map", {
         center: [55.76, 37.64],
@@ -36,6 +36,7 @@ function loadData() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             window.COORDINATES_DATA = JSON.parse(this.responseText).data
+            ymaps.ready(init)
         }
     };
     xhttp.open("GET", '/api/billboards', true);
